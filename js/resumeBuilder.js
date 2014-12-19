@@ -3,39 +3,32 @@
 var firstName = "Ken";
 var lastName = "Haulotte";
 var fullName = firstName + " " + lastName;
-var age = 57;
-var role = "Platform and Applications Designer, Developer & Implementation Manager/Specialist";
+var role = " --------------- Applications Designer -------------- Developer ------------ Implementation Specialist";
 var street = "3501 Palmer Cove ";
 var city = "Round Rock, ";
 var state = "TX ";
 var zip = "78664";
 var mobile = "(925)-548-4947 ";
+var address = "Austin, TX"
 var email = "foreswing@gmail.com ";
 var twitter = "foreswing@twitter.com ";
 var blog = "foreswing@blog.com ";
 var gitHub = "foreswing ";
-var picUrl = "<img src ='images/jimmeny.jpg' height = '150' width = '150'>";
-var welcome = "The right man for the right job ";
-var prev_i = 0;
+var picUrl = "images/jimmeny.jpg";
+var welcome = "The Best Person for the Job !!!";
+
 
 var skills = [
-	"Design",
-	"Build",
-	"Develop",
-	"Test",
-	"Package",
-	"Distribute",
-	"Implement",
-	"Maintain",
-	"Support"
+	"|  Design  |",
+	"|  Build  |",
+	"|  Develop  |",
+	"|  Test  |",
+	"|  Package  |",
+	"|  Distribute  |",
+	"|  Implement  |",
+	"|  Maintain  |",
+	"|  Support  |"
 	];
-
-var address = {
-	"street": street,
-	"city": city,
-	"state": state,
-	"zip": zip
-};
 
 var contact = {
 	"address": address,
@@ -125,43 +118,54 @@ var projects = {
 //                                           End Variable Definition
 
 
-//                         Replace resume Helper JS variables with my formatted variables
-//--------------------------------------------------------------------------------------------------------------
-var formattedName = HTMLheaderName.replace("%data%", fullName);
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-var formattedContact = HTMLcontactGeneric.replace("%data%", contact);
-var formattedEmail = HTMLemail.replace("%data%", email);
-var formattedTwitter = HTMLtwitter.replace("%data%", twitter);
-var formattedGitHub = HTMLgithub .replace("%data%", gitHub);
-var formattedBlog = HTMLblog.replace("%data%", blog);
-var formattedLocation = HTMLlocation.replace("%data%", contact);
-var formattedBioPic = HTMLbioPic.replace("%data%", picUrl);
-var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", welcome);
-var formattedSkills = HTMLskills.replace("%data%", skills);
-//--------------------------------------------------------------------------------------------------------------
-//                                             End Replace Helper JS
-
-
 //                                       Replace HTML with my information - BIO
 //--------------------------------------------------------------------------------------------------------------
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").prepend(bio.picURL);
+bio.display = function() {
+
+		var formattedName = HTMLheaderName.replace("%data%", fullName);
+		var formattedRole = HTMLheaderRole.replace("%data%", role);
+		var formattedContact = HTMLcontactGeneric.replace("%data%", address);
+		var formattedEmail = HTMLemail.replace("%data%", email);
+		var formattedTwitter = HTMLtwitter.replace("%data%", twitter);
+		var formattedGitHub = HTMLgithub .replace("%data%", gitHub);
+		var formattedBlog = HTMLblog.replace("%data%", blog);
+		var formattedBioPic = HTMLbioPic.replace("%data%", picUrl);
+		var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", welcome);
+
+		$("#header").prepend(formattedRole);
+		$("#header").prepend(formattedName);
+		$("#header").append(formattedBioPic);
+
+		$("#topContacts").append(formattedEmail);
+		$("#topContacts").append(formattedContact);		
+		$("#topContacts").append(formattedGitHub);
+		$("#topContacts").append(formattedBlog);
+		$("#topContacts").append(formattedTwitter);		
 
 
-if (bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
-	for (skills in bio.skills) {
-		var formattedSkills = HTMLskills.replace("%data%", bio.skills[skills]);
-		$("#skills").append(formattedSkills);
-	};
+		if (bio.skills.length > 0) {
+
+			$("#header").append(HTMLskillsStart);
+
+			for (skills in bio.skills) {
+				var formattedSkills = HTMLskills.replace("%data%", bio.skills[skills]);
+				$("#skills").append(formattedSkills);
+			};
+		};
+		
+		$("#header").append("<br/> <br/>");
+		$("#header").append(formattedWelcomeMsg);
 };
+
+bio.display();
 
 
 //                                   Replace HTML with my information - Employment
 //--------------------------------------------------------------------------------------------------------------
 employment.display = function() {
+
 	if (employment.jobs.length > 0) {
+
 		$("#workExperience").append(HTMLworkStart);
 		for (jobs in employment.jobs) {
 			var formattedEmployer = HTMLworkEmployer.replace("%data%", employment.jobs[jobs].Company);
@@ -183,9 +187,13 @@ employment.display();
 //                                   Replace HTML with my information - Projects
 //--------------------------------------------------------------------------------------------------------------
 projects.display = function() {	
+
 	if (projects.project.length > 0) {
-		$("#projects").append(HTMLprojectStart);	
+
+		$("#projects").append(HTMLprojectStart);
+
 		for (proj in projects.project) {
+
 			var formattedProjName = HTMLprojectTitle.replace("%data%", projects.project[proj].Name);
 			var formattedProjDates = HTMLprojectDates.replace("%data%", projects.project[proj].Dates);
 			var formattedProjDescription = HTMLprojectDescription.replace("%data%", projects.project[proj].Description);
@@ -202,8 +210,11 @@ projects.display();
 //                                   Replace HTML with my information - Education
 //--------------------------------------------------------------------------------------------------------------
 education.display = function() {	
+
 	if (education.schools.length > 0) {
-		$("#education").append(HTMLschoolStart);	
+
+		$("#education").append(HTMLschoolStart);
+
 		for (item in education.schools) {
 			var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[item].Name);
 			var formattedSchoolCity = HTMLschoolLocation.replace("%data%", education.schools[item].City);
@@ -260,7 +271,7 @@ $("#mapDiv").append(googleMap);
 // $("#main").append(bio.skills, "<br/>", "<br/>");
 
 // $("#main").append("<br/>", "<strong>Work Experience</strong>", "<br/>", "<br/>");
-
+//var prev_i = 0;
 // for (i=0; i < employment.jobs.length; i++) {
 // 	if (i != prev_i) {
 // 		$("#main").append("<br/>");
