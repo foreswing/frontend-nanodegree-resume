@@ -19,15 +19,15 @@ var welcome = "The Best Person for the Job !!!";
 
 
 var skills = [
-	"|  Design  |",
-	"|  Build  |",
-	"|  Develop  |",
-	"|  Test  |",
-	"|  Package  |",
-	"|  Distribute  |",
-	"|  Implement  |",
-	"|  Maintain  |",
-	"|  Support  |"
+	"Design",
+	"Build",
+	"Develop",
+	"Test",
+	"Package",
+	"Distribute",
+	"Implement",
+	"Maintain",
+	"Support"
 	];
 
 var contact = {
@@ -142,6 +142,11 @@ bio.display = function() {
 		$("#topContacts").append(formattedBlog);
 		$("#topContacts").append(formattedTwitter);		
 
+		$("#footerContacts").append(formattedEmail);
+		$("#footerContacts").append(formattedContact);		
+		$("#footerContacts").append(formattedGitHub);
+		$("#footerContacts").append(formattedBlog);
+		$("#footerContacts").append(formattedTwitter);		
 
 		if (bio.skills.length > 0) {
 
@@ -196,9 +201,11 @@ projects.display = function() {
 
 			var formattedProjName = HTMLprojectTitle.replace("%data%", projects.project[proj].Name);
 			var formattedProjDates = HTMLprojectDates.replace("%data%", projects.project[proj].Dates);
+			var formattedProjCity = HTMLprojectLocation.replace("%data%", projects.project[proj].City);
 			var formattedProjDescription = HTMLprojectDescription.replace("%data%", projects.project[proj].Description);
 			$(".project-entry:last").append(formattedProjName);
 			$(".project-entry:last").append(formattedProjDates);
+			$(".project-entry:last").append(formattedProjCity);
 			$(".project-entry:last").append(formattedProjDescription);
 		};
 	};

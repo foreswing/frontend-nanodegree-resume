@@ -1,7 +1,8 @@
 * {
   padding:0;
   margin:0;
-  font-family: 'Roboto', sans-serif;
+  /*font-family: 'Roboto', sans-serif;*/
+  font-family: Verdana, Geneva, sans-serif;
 }
 
 .clearfix {
@@ -14,16 +15,20 @@
 }
 
 h1 {
-  font-size: 40px;
-  color: #F5A623;
+  font-size: 35px;
+  font-weight: bold;
+  color: #7094FF;
+  /*color: #F5A623;*/
   line-height: 48px;
   display: inline;
+  padding-left: 1%;
 }
 
 h2 {
   font-weight: bold;
   font-size: 24px;
   color: #999999;
+  text-decoration: underline;
   line-height: 29px;
   padding: 10px;
 }
@@ -34,6 +39,14 @@ h3 {
   color: #000000;
   line-height: 22px;
 }
+
+/*h3:after
+{
+    content:' ';
+    display:block;
+    width: 100%;
+    border: 1px solid white;
+}*/
 
 h4 {
   font-weight: bold;
@@ -67,6 +80,7 @@ h2, h3, h4, h5 {
 }
 
 p {
+  width: 80%;
   font-size: 14px;
   color: #333333;
   line-height: 21px;
@@ -81,22 +95,29 @@ a {
 
 .welcome-message {
   font-style: italic;
+  font-weight: bold;
   font-size: 18px;
-  color: #F3F3F3;
+  color: #7094FF;
+  text-decoration: solid;
+/*  color: #F3F3F3;*/
   line-height: 28px;
 }
 
 #skillsH3 {
-  color: #F5AE23;
-  display: none;
+  text-align: center;
+  color: #7094FF;
+  /*color: #F5AE23;*/
+  /*display: none;*/
 }
 
 .orange {
-  background-color: #F5AE23;
+  background-color: #7094FF;
+  /*background-color: #F5AE23;*/
 }
 
 .orange-text {
-  color: #F5AE23;
+  color: #7094FF;
+  /*color: #F5AE23;*/
 }
 
 .white-text {
@@ -116,7 +137,8 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #7a7a7a;
+  /*background-color: #6c6c6c;*/
 }
 
 .flex-box {
@@ -137,16 +159,23 @@ a {
 
 ul {
   list-style-type: none;
+/*    border:1px solid white;*/
+/*    padding-left: 2px;*/
 }
 
 .biopic {
   float: left;
-  padding: 10px;
+/*  border: 2px;
+  border-color: #7094FF;*/
+  padding: 2px;
   width: 200px;
-  display: none;
+  /*display: none;*/
 }
 
 img {
+  /*padding:1px;*/
+  border:1px solid white;
+  /*background-color:#ff0;*/
   padding: 10px;
 }
 
